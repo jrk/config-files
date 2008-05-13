@@ -1,0 +1,10 @@
+autodetach on
+startup_message off
+
+escape ''  # unbind ^a
+escape ^zz # rebind with ^z instead
+
+vbell off
+
+# Pretty status bar at the bottom.
+caption always "%m/%d/%y %0c%{=b kg}  %l  %{=r gk}%-w%{=b wb}%50>%n%f* %t%{-}%+Lw%<%{- Wk}"

@@ -1,0 +1,17 @@
+[user]
+	name = Jonathan Ragan-Kelley
+	email = jrk@csail.mit.edu
+[color]
+	status = auto
+	branch = auto
+	diff = auto
+[git-tmbundle]
+	gitnub-path = /usr/local/bin/nub
+[alias]
+      st = status
+      di = diff
+      co = checkout
+      ci = commit -a
+      br = branch
+      sta = stash
+      up = pull
