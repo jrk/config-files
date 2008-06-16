@@ -1,0 +1,75 @@
+have gem &&
+{
+   # List gems from rubyforge
+   _rubyforge_gems()
+   {
+     COMPREPLY=( $( compgen -P "$prefix" -W "$( ruby -e '
+     require "rexml/parsers/sax2parser"
+     require "rexml/sax2listener"
+     require "open-uri"
+
+     class RubyForgeGems
+       include REXML::SAX2Listener
+       attr_reader :gems
+       def initialize
+         @gems = []
+       end
+
+       def start_element(uri, localname, qname, attributes)
+         @gems << attributes["href"][0..-5] if localname == "a" and  
+attributes["href"] != "../"
+       end
+     end
+
+     text = open("http://rubyforge.lauschmusik.de/gems/") { |f| f.read }
+     parser = REXML::Parsers::SAX2Parser.new(text)
+     listen = RubyForgeGems.new
+     parser.listen(listen)
+     parser.parse
+     print listen.gems.join(" ")
+   '
+     ) " -- $cur ) )
+
+   }
+
+   _gem_commands()
+   {
+     COMPREPLY=( $( compgen -W "build cert check cleanup contents  
+dependency environment help install list query rdoc search  
+specification uninstall unpack update" -- $cur ) )
+   }
+
+   _gem()
+   {
+       local cur prev prefix temp
+
+       COMPREPLY=()
+       cur=${COMP_WORDS[COMP_CWORD]}
+       prev=${COMP_WORDS[COMP_CWORD-1]}
+       prefix=""
+
+       # completing an option (may or may not be separated by a space)
+       if [[ "$cur" == -?* ]]; then
+   	    temp=$cur
+   	    prev=${temp:0:2}
+   	    cur=${temp:2}
+   	    prefix=$prev
+       fi
+
+       case "$prev" in
+   	    "install")
+           _rubyforge_gems
+   	      return 0
+   	    ;;
+       esac
+
+       # handle case where first parameter is not a dash option
+       #if [ $COMP_CWORD -eq 1 ] && [[ "$cur" != -* ]]; then
+   	  #  _filedir
+   	  #  return 0
+       #fi
+
+       return 0
+   }
+   complete -F _gem $default gem
+}
