@@ -26,23 +26,25 @@ export TERM=xterm-color
 #export LSCOLORS=GxFxCxDxFxGgGdabagacad   # ls defaults, with non-default fonts bolded
 
 
-P4USER=jrkelley
+export P4USER=jraganke
 #P4PORT=perforce.lucasfilm.com:1666
-P4PORT=localhost:1666
-P4CONFIG=/Users/jrk/.p4passwd
-P4EDITOR=mate
-P4DIFF=opendiff
-P4MERGE=merge
-P4PASSWD=insecure1
-P4CLIENT=jrkelley_svk
-P4ROOT=/Users/jrk/.p4root
+export P4PORT=ors-avc-dev001.amr.corp.intel.com:1666
+#P4CONFIG=/Users/jrk/.p4passwd
+export P4CLIENT=jraganke-mobl3
+export P4EDITOR=mate_wait
+export P4DIFF=opendiff
+#P4MERGE=merge
+#P4ROOT=/Users/jrk/.p4root
 
 export OSTYPE=$OSTYPE
-export CDPATH=.:~:~/Documents/Projects
+#export CDPATH=.:~:~/Documents/Projects
 
 export RMANTREE=/Applications/Pixar/RenderMan.app/Versions/RenderManProServer-13.0.3G4
 export PATH=$PATH:$RMANTREE/bin
 export PATH=/usr/local/cuda/bin:$PATH
+
+export OBJJ_HOME=/usr/local/share/objj
+export STEAM_BUILD=/Users/jrk/objj_build
 
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/X11R6/bin
@@ -53,7 +55,6 @@ export MANPATH=/opt/local/share/man:${MANPATH}
 export INFOPATH=/opt/local/share/info:${INFOPATH}
 
 export PATH=$HOME/bin:$PATH
-export PATH=.:${PATH}
 export PATH=${PATH}:/Applications/Matlab/bin
 
 export PATH=$PATH:/Developer/Tools
@@ -102,7 +103,8 @@ alias snowcrash='ssh snowcrash.csres.utexas.edu'
 alias vu='myFlipper'
 
 #export EDITOR='see -rw'
-export EDITOR="mate -w"
+export EDITOR="mate_w"
+#export EDITOR=mate_w
 
 #export DISPLAY=:0.0
 
@@ -110,10 +112,10 @@ export LC_CTYPE=en_US.UTF-8
 export SCONSFLAGS=-Q
 
 # ccache/distcc
-alias gcc='ccache gcc'
-alias g++='ccache g++'
+#alias gcc='ccache gcc'
+#alias g++='ccache g++'
 
-alias intelcc='source /opt/intel/cc/current/bin/iccvars.sh'
+#alias intelcc='source /opt/intel/cc/current/bin/iccvars.sh'
 
 alias spot='mdfind -onlyin `pwd`'
 
@@ -141,9 +143,7 @@ alias am='open -a "Activity Monitor"'
 #    fi
 #}
 
-alias sshilm='ssh -Y jrkelley@millhouse.ilm.com'
-alias sshm='sshilm'
-alias sshluxothena='ssh 128.30.96.108'
+#alias sshilm='ssh -Y jrkelley@millhouse.ilm.com'
 alias sshk='ssh katokop1.mit.edu'
 alias sshc='ker && ssh login.csail.mit.edu'
 

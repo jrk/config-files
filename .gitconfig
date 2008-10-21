@@ -6,7 +6,7 @@
 	branch = auto
 	diff = auto
 [git-tmbundle]
-	gitnub-path = /usr/local/bin/nub
+	gitnub-path = /Users/jrk/bin/nub
 [alias]
       st = status
       di = diff
