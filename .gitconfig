@@ -5,6 +5,10 @@
 	status = auto
 	branch = auto
 	diff = auto
+[core]
+	autocrlf = true
+	safecrlf = true
+	editor = nano
 [alias]
 	st = status
 	di = diff
