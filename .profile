@@ -40,3 +40,9 @@ function git-create-branch {
 
 # ART build
 alias scons='python build/scons.py'
+
+# (Via http://www.emacswiki.org/emacs/EmacsClient)
+# To have emacsclient start a full Emacs process if it can’t connect to one, simply set ALTERNATE_EDITOR. In your .bash_profile (or similar):
+export ALTERNATE_EDITOR=emacs EDITOR=emacsclient VISUAL=emacsclient
+
+alias ed='emacsclient -n'

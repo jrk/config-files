@@ -151,3 +151,8 @@
 
 (load "~/.emacs.gnu.custom")
 
+; start emacsclient server
+(server-start)
+
+; hide the tool bar
+(tool-bar-mode -1)
