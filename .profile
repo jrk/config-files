@@ -9,6 +9,14 @@ alias start='cmd /C start'
 # </Windows>
 
 
+# <SSH>
+
+alias sshagent='eval `ssh-agent` && ssh-add'
+alias ssha=sshagent
+
+# </SSH>
+
+
 # <Git>
 
 # git-create-branch <branch_name>
