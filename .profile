@@ -11,8 +11,9 @@ alias start='cmd /C start'
 
 # <Git>
 
+# git-create-branch <branch_name>
+# Creates and switches to a new *remote* branch (tracked locally) called <branch_name>
 function git-create-branch {
-    # git-create-branch <branch_name>
 
     if [ $# -ne 1 ]; then
         echo 1>&2 Usage: $0 branch_name
