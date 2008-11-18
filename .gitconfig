@@ -8,10 +8,11 @@
 [git-tmbundle]
 	gitnub-path = /Users/jrk/bin/nub
 [alias]
-      st = status
-      di = diff
-      co = checkout
-      ci = commit -a
-      br = branch
-      sta = stash
-      up = pull
+    st = status
+    di = diff
+    co = checkout
+    ci = commit -a
+    br = branch
+    sta = stash
+    up = pull
+    llog = log --date=local
