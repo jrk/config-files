@@ -154,5 +154,8 @@
 ; start emacsclient server
 (server-start)
 
+; enable pc-select
+(pc-selection-mode)
+
 ; hide the tool bar
 (tool-bar-mode -1)

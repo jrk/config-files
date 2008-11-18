@@ -39,10 +39,19 @@ function git-create-branch {
 
 
 # ART build
-alias scons='python build/scons.py'
+alias scons='/cygdrive/c/Python25/python.exe build/scons.py'
+alias cdsrc='cd ~/src/jrk_research'
+alias cdp4='cd ~/p4src/work_branches/ART/sw/jrk_research'
+
+function runsample {
+    pushd inst/samples/bin/windows-x64-lrb-netsim/debug/$1/
+    ./host_$1.exe
+    popd
+}
 
 # (Via http://www.emacswiki.org/emacs/EmacsClient)
 # To have emacsclient start a full Emacs process if it can’t connect to one, simply set ALTERNATE_EDITOR. In your .bash_profile (or similar):
 export ALTERNATE_EDITOR=emacs EDITOR=emacsclient VISUAL=emacsclient
 
 alias ed='emacsclient -n'
+alias em=ed

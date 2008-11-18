@@ -1,0 +1,10 @@
+## Symlinks ##
+Symlinks play poorly together. As of 2008.11, there seem to be three
+distinct types:
+
+* Cygwin (which creates lnk files which only it interprets)
+* MSys (which seems to create hard links or copies which confound everyone)
+* NTFS links, via mklink (which everyone follows transparently, but cygwin doesn't label as links
+
+There are problems e.g. with ntemacs traversing Cygwin symlinks. The
+best solution in general is to use NTFS links wherever possible.
