@@ -1,0 +1,10 @@
+client = yes 
+output = /Users/jrk/.config/stunnel/stunnel.log 
+socket = l:TCP_NODELAY=1 
+socket = r:TCP_NODELAY=1 
+cert = /Users/jrk/.config/stunnel/stunnel.pem 
+pid = /Users/jrk/.config/stunnel/stunnel.pid
+
+[synergy] 
+accept = 24800
+connect = luxo3.csail.mit.edu:25800
