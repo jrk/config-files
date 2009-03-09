@@ -16,3 +16,5 @@
     sta = stash
     up = pull
     llog = log --date=local
+    changes=diff --name-status -r
+    unadd=update-index --force-remove

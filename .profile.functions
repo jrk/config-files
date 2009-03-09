@@ -1,3 +1,21 @@
+get_keychain_service_password ()
+{
+    security 2>&1 >/dev/null find-generic-password -gs "$1"   | \
+    ruby -e 'print $1 if STDIN.gets =~ /^password: "(.*)"$/';
+}
+
+get_keychain_account_password ()
+{
+    security 2>&1 >/dev/null find-generic-password -ga "$1"   | \
+    ruby -e 'print $1 if STDIN.gets =~ /^password: "(.*)"$/';
+}
+
+get_keychain_service_account ()
+{
+    security find-generic-password -s "$1"   | grep acct | \
+    ruby -e 'print $1 if STDIN.gets =~ /^[ ]*"acct"<blob>="(.*)"$/';
+}
+
 yubnub ()
 {
     local u;

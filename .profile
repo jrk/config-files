@@ -39,8 +39,9 @@ export P4DIFF=opendiff
 export OSTYPE=$OSTYPE
 #export CDPATH=.:~:~/Documents/Projects
 
-export RMANTREE=/Applications/Pixar/RenderMan.app/Versions/RenderManProServer-13.0.3G4
+export RMANTREE=/Applications/Pixar/RenderMan.app/Versions/RenderManProServer-14.3
 export PATH=$PATH:$RMANTREE/bin
+export PYTHONPATH=$PYTHONPATH:$RMANTREE/bin
 export PATH=/usr/local/cuda/bin:$PATH
 
 export OBJJ_HOME=/usr/local/share/objj
@@ -79,7 +80,7 @@ alias act='open -a "Activity Monitor"'
 alias hexf='open -a "Hex Fiend"'
 alias skim='open -a "Skim"'
 alias s='skim'
-alias aps='open -a "Adobe Photoshop CS3"'
+alias aps='open -a "Adobe Photoshop CS4"'
 
 alias snowcrash='ssh snowcrash.csres.utexas.edu'
 
@@ -149,6 +150,9 @@ alias sshc='ker && ssh login.csail.mit.edu'
 
 source ~/.profile.functions
 
+# Amazon S3
+export AWS_ACCESS_KEY_ID=`get_keychain_service_account "Amazon S3"`
+export AWS_SECRET_ACCESS_KEY=`get_keychain_service_password "Amazon S3"`
 
 alias updatedb='sudo nice /usr/libexec/locate.updatedb'
 
