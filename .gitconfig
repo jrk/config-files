@@ -18,3 +18,12 @@
     llog = log --date=local
     changes=diff --name-status -r
     unadd=update-index --force-remove
+
+[merge]
+    tool = changesapp
+[mergetool "changesapp"]
+    cmd = /usr/bin/env chdiff --wait "$LOCAL" "$REMOTE"
+    keepBackup = false
+    trustExitCode = false
+[diff]
+	external = /Users/jrk/bin/git-diff-changes-wrapper
