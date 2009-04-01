@@ -25,5 +25,5 @@
     cmd = /usr/bin/env chdiff --wait "$LOCAL" "$REMOTE"
     keepBackup = false
     trustExitCode = false
-[diff]
-	external = /Users/jrk/bin/git-diff-changes-wrapper
+#[diff]
+#	external = /Users/jrk/bin/git-diff-changes-wrapper

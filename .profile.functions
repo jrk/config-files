@@ -1,3 +1,5 @@
+alias git-chdiff="GIT_EXTERNAL_DIFF=/Users/jrk/bin/git-diff-changes-wrapper git diff"
+
 get_keychain_service_password ()
 {
     security 2>&1 >/dev/null find-generic-password -gs "$1"   | \
