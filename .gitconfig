@@ -27,3 +27,5 @@
     trustExitCode = false
 #[diff]
 #	external = /Users/jrk/bin/git-diff-changes-wrapper
+[github]
+	user = jrk

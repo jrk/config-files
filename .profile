@@ -75,7 +75,10 @@ export PATH=${PATH}:/Applications/Matlab/bin
 
 export PATH=$PATH:/Developer/Tools
 
-export JAVA_HOME=/Library/Java/Home
+#export JAVA_HOME=/Library/Java/Home
+export FORTRESS_HOME=/Users/jrk/Projects/PFC
+export PATH=${PATH}:${FORTRESS_HOME}/bin
+alias ft=fortress
 
 export CVS_RSH=ssh
 
@@ -211,3 +214,16 @@ function tv {
     t $1 && v $1
 }
 export PATH=$PATH:$DS_ROOT/util:$DS_ROOT/rasterizer
+
+# Open a manpage in Preview, which can be saved to PDF
+pman()
+{
+   man -t "${1}" | open -f -a /Applications/Preview.app
+}
+
+# don't put duplicate lines in the history. See bash(1) for more options
+export HISTCONTROL=ignoredups
+# ... and ignore same sucessive entries.
+export HISTCONTROL=ignoreboth
+ 
+shopt -s histappend
