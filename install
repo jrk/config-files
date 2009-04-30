@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+# from http://errtheblog.com/posts/89-huba-huba
+#
+# Install each file <name> in . (your config file repository) as .<name> in ~/
+
+home = File.expand_path('~')
+
+Dir['*'].each do |file|
+  next if file =~ /install/
+  target = File.join(home, ".#{file}")
+  `ln -s #{File.expand_path file} #{target}`
+end
+
+# git push on commit
+#@jrk: DISABLED
+#`echo 'git push' > .git/hooks/post-commit`
+#`chmod 755 .git/hooks/post-commit`
