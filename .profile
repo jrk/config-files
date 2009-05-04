@@ -8,6 +8,12 @@ if [ $? -eq 1 ] ; then
     export PATH
 fi
 
+# liftweb path vars
+export M2_HOME=/opt/local/share/java/maven2/
+export M2=$M2_HOME/bin
+export MAVEN_OPTS="-noverify -javaagent:/Applications/liftweb-0.11/java-rebel/javarebel.jar"
+export PATH=$M2:$PATH
+
 
 # === PROMPT CUSTOMIZATION ===
 # Mac default:
