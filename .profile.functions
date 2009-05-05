@@ -226,3 +226,4 @@ function imagediff {
 }
 
 source ~/.profile.functions.kerberos
+source ~/.profile.functions.blog
