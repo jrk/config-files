@@ -1,3 +1,23 @@
+function cdgr {
+    ## If the current working directory is inside of 
+    ## a git repository, this function will change
+    ## it to the git root (ie, the directory that 
+    ## contains the .git/ directory), and then print
+    ## the new directory.
+ 
+    git branch > /dev/null 2>&1 || return 1
+    cd "$(git rev-parse --show-cdup)".
+    pwd
+}
+
+function clfu-search() {
+wget -q -O /dev/stdout --post-data "q=$1" http://www.commandlinefu.com/search/autocomplete | grep "class=\"autocomplete-command\"" | sed -e 's/^.*<strong>\(.*\)<\/strong>/\1/' -e 's/<\/div>//' | sort -u
+}
+
+#function clfu-search() {
+#wget -q -O /dev/stdout --post-data "q=$1" http://www.commandlinefu.com/search/autocomplete | grep "class=\"autocomplete-command\"" | sed -e 's/^.*\(.*\)/\1/' -e 's///' | sort -u
+#}
+
 alias git-chdiff="GIT_EXTERNAL_DIFF=/Users/jrk/bin/git-diff-changes-wrapper git diff"
 
 get_keychain_service_password ()
