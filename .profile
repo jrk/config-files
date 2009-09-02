@@ -41,8 +41,8 @@ export PATH=$PATH:/Users/jrk/Documents/Projects/ember/ember-p4/ext/osx-x86/debug
 #export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
 
 # Simple clean prompt via http://beckism.com/2009/02/better_bash_prompt/
-export PS1="\[\e[1m\]________________________________________________________________________________\n\[\e[1;30;47m\] \w @ \@ \d [!\!]\n => \[\e[0m\]"
-export PS2="\[\e[1;30;47m\]| => \[\e[0m\]"
+export PS1="\[\e[1m\]________________________________________________________________________________\n \w @ \@ \d [!\!]\n => \[\e[0m\]"
+export PS2="\[\e[1m\]| => \[\e[0m\]"
 
 # === END PROMPT CUSTOMIZATION ===
 
