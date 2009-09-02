@@ -14,6 +14,8 @@ export M2=$M2_HOME/bin
 export MAVEN_OPTS="-noverify -javaagent:/Applications/liftweb-0.11/java-rebel/javarebel.jar"
 export PATH=$M2:$PATH
 
+export PATH=$PATH:/Users/jrk/Documents/Projects/ember/ember-p4/ext/osx-x86/debug/llvm/bin
+
 
 # === PROMPT CUSTOMIZATION ===
 # Mac default:
@@ -28,14 +30,19 @@ export PATH=$M2:$PATH
 # http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
 #   username@Machine ~/dev/dir[master]$   # clean working directory
 #   username@Machine ~/dev/dir[master*]$  # dirty working directory
- 
-function parse_git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
-}
-function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
-}
-export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
+
+## Useful git status, disabled for performance on large repositories
+#function parse_git_dirty {
+#  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+#}
+#function parse_git_branch {
+#  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+#}
+#export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
+
+# Simple clean prompt via http://beckism.com/2009/02/better_bash_prompt/
+export PS1="\[\e[1m\]________________________________________________________________________________\n\[\e[1;30;47m\] \w @ \@ \d [!\!]\n => \[\e[0m\]"
+export PS2="\[\e[1;30;47m\]| => \[\e[0m\]"
 
 # === END PROMPT CUSTOMIZATION ===
 
@@ -57,7 +64,7 @@ export P4DIFF=opendiff
 #P4MERGE=merge
 #P4ROOT=/Users/jrk/.p4root
 
-export OSTYPE=$OSTYPE
+#export OSTYPE=$OSTYPE
 #export CDPATH=.:~:~/Documents/Projects
 
 export RMANTREE=/Applications/Pixar/RenderMan.app/Versions/RenderManProServer-14.3
