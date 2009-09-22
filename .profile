@@ -14,8 +14,13 @@ export M2=$M2_HOME/bin
 export MAVEN_OPTS="-noverify -javaagent:/Applications/liftweb-0.11/java-rebel/javarebel.jar"
 export PATH=$M2:$PATH
 
-export PATH=$PATH:/Users/jrk/Documents/Projects/ember/ember-p4/ext/osx-x86/debug/llvm/bin
-
+export EMBER_PATH=/Users/jrk/Documents/Projects/ember/ember-p4
+export EMBER_LLVM_BUILD_PATH=$EMBER_PATH/llvm-src/Release
+export EMBER_LLVM_BIN_PATH=$EMBER_LLVM_BUILD_PATH/bin
+export EMBER_LLVM_LIB_PATH=$EMBER_LLVM_BUILD_PATH/lib
+export PATH=$PATH:$EMBER_LLVM_BIN_PATH
+alias emberopt="$EMBER_LLVM_BIN_PATH/opt -load $EMBER_LLVM_LIB_PATH/LLVMcd.dylib -load $EMBER_LLVM_LIB_PATH/LLVMember.dylib"
+alias eopt=emberopt
 
 # === PROMPT CUSTOMIZATION ===
 # Mac default:
