@@ -8,6 +8,8 @@ if [ $? -eq 1 ] ; then
     export PATH
 fi
 
+export PATH=/usr/local/git/bin:$PATH
+
 # liftweb path vars
 export M2_HOME=/opt/local/share/java/maven2/
 export M2=$M2_HOME/bin
