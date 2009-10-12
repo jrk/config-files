@@ -62,10 +62,6 @@ export TERM=xterm-color
 
 
 export P4USER=jraganke
-#P4PORT=perforce.lucasfilm.com:1666
-export P4PORT=ors-avc-dev001.amr.corp.intel.com:1666
-#P4CONFIG=/Users/jrk/.p4passwd
-export P4CLIENT=jraganke-mobl3
 export P4EDITOR=mate_wait
 export P4DIFF=opendiff
 #P4MERGE=merge
@@ -119,8 +115,6 @@ alias hexf='open -a "Hex Fiend"'
 alias skim='open -a "Skim"'
 alias s='skim'
 
-alias snowcrash='ssh snowcrash.csres.utexas.edu'
-
 #alias m='make -C ~/Projects/eclipse/workspace/lightspeed/src/compiler'
 #alias xs='~/Projects/eclipse/workspace/lightspeed/export/xslc.exe'
 #alias t='xs test.sl'
@@ -140,48 +134,18 @@ alias snowcrash='ssh snowcrash.csres.utexas.edu'
 
 alias vu='myFlipper'
 
-#export EDITOR='see -rw'
 export EDITOR="mate_w"
-#export EDITOR=mate_w
-
-#export DISPLAY=:0.0
 
 export LC_CTYPE=en_US.UTF-8
 export SCONSFLAGS=-Q
 
-# ccache/distcc
-#alias gcc='ccache gcc'
-#alias g++='ccache g++'
-
-#alias intelcc='source /opt/intel/cc/current/bin/iccvars.sh'
-
 alias spot='mdfind -onlyin `pwd`'
-
-# 6.863
-#alias fst='java -cp automaton.jar:src rule2fst.Rule2FST'
-#function dp {
-#    OF=`mktemp /tmp/dot.XXX`
-#    dot -Tpng -o${OF} $1
-#    open -a Preview ${OF}
-#}
 
 alias mt='m && t'
 
 alias wcc='wc -l *.cpp *.h *.py *.rb'
 alias am='open -a "Activity Monitor"'
 
-#function qs {
-#    if [ `/usr/bin/qs $@` = `true` ]; then
-#        echo "Quicksilver is running...passing it along"
-#    else
-#        echo "Quicksilver not running...relaunching..."
-#        oqs
-#        #echo "and passing it along"
-#        #/usr/bin/qs $@
-#    fi
-#}
-
-#alias sshilm='ssh -Y jrkelley@millhouse.ilm.com'
 alias sshk='ssh katokop1.mit.edu'
 alias sshc='ker && ssh login.csail.mit.edu'
 
@@ -195,9 +159,9 @@ alias updatedb='sudo nice /usr/libexec/locate.updatedb'
 
 
 function mkdso {
-  g++ -arch ppc -I${RMANTREE}/include -c $1 -o $1.o
+  g++ -I${RMANTREE}/include -c $1 -o $1.o
   #setenv MACOSX_DEPLOYMENT_TARGET 10.3
-  g++ -arch ppc -bundle -undefined dynamic_lookup $1.o -o $1.so
+  g++ -bundle -undefined dynamic_lookup $1.o -o $1.so
 }
 
 
@@ -212,27 +176,27 @@ resetvisor() {
 trap "defaults write com.apple.VTerminal VisorTerminal -dict-add Rows 20" EXIT
 
 DS_ROOT="/Users/jrk/Documents/Projects/multisampling/ds"
-function v {
-    if [[ $1 ]]; then
-        DATA_ROOT="$DS_ROOT/data/$1"
-        REF_IMG="$DATA_ROOT/*_raster.png"
-        SIM_IMG="$DATA_ROOT/*sim.ppm"
-    else
-        REF_IMG="*_raster.png"
-        SIM_IMG="*.sim.ppm"
-    fi
-    ll $REF_IMG $SIM_IMG
-    imagediff $REF_IMG $SIM_IMG
-}
+#function v {
+#    if [[ $1 ]]; then
+#        DATA_ROOT="$DS_ROOT/data/$1"
+#        REF_IMG="$DATA_ROOT/*_raster.png"
+#        SIM_IMG="$DATA_ROOT/*sim.ppm"
+#    else
+#        REF_IMG="*_raster.png"
+#        SIM_IMG="*.sim.ppm"
+#    fi
+#    ll $REF_IMG $SIM_IMG
+#    imagediff $REF_IMG $SIM_IMG
+#}
 #alias v='ll *_raster.png *sim.ppm && imagediff *_raster.png *sim.ppm' # verify
-function t {
-    RAST_FILE="$DS_ROOT/data/$1/$1.rast"
-    python "$DS_ROOT/gpusim2/GPU.py" $RAST_FILE
-}
-function tv {
-    t $1 && v $1
-}
-export PATH=$PATH:$DS_ROOT/util:$DS_ROOT/rasterizer
+#function t {
+#    RAST_FILE="$DS_ROOT/data/$1/$1.rast"
+#    python "$DS_ROOT/gpusim2/GPU.py" $RAST_FILE
+#}
+#function tv {
+#    t $1 && v $1
+#}
+#export PATH=$PATH:$DS_ROOT/util:$DS_ROOT/rasterizer
 
 # Open a manpage in Preview, which can be saved to PDF
 pman()
