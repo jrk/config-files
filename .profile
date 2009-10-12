@@ -26,17 +26,6 @@ export TERM=xterm-color
 #export LSCOLORS=GxFxCxDxFxGgGdabagacad   # ls defaults, with non-default fonts bolded
 
 
-P4USER=jrkelley
-#P4PORT=perforce.lucasfilm.com:1666
-P4PORT=localhost:1666
-P4CONFIG=/Users/jrk/.p4passwd
-P4EDITOR=mate
-P4DIFF=opendiff
-P4MERGE=merge
-P4PASSWD=insecure1
-P4CLIENT=jrkelley_svk
-P4ROOT=/Users/jrk/.p4root
-
 export OSTYPE=$OSTYPE
 export CDPATH=.:~:~/Documents/Projects
 
@@ -78,9 +67,6 @@ alias act='open -a "Activity Monitor"'
 alias hexf='open -a "Hex Fiend"'
 alias skim='open -a "Skim"'
 alias s='skim'
-alias aps='open -a "Adobe Photoshop CS3"'
-
-alias snowcrash='ssh snowcrash.csres.utexas.edu'
 
 #alias m='make -C ~/Projects/eclipse/workspace/lightspeed/src/compiler'
 #alias xs='~/Projects/eclipse/workspace/lightspeed/export/xslc.exe'
@@ -109,22 +95,6 @@ export EDITOR="mate -w"
 export LC_CTYPE=en_US.UTF-8
 export SCONSFLAGS=-Q
 
-# ccache/distcc
-alias gcc='ccache gcc'
-alias g++='ccache g++'
-
-alias intelcc='source /opt/intel/cc/current/bin/iccvars.sh'
-
-alias spot='mdfind -onlyin `pwd`'
-
-# 6.863
-#alias fst='java -cp automaton.jar:src rule2fst.Rule2FST'
-#function dp {
-#    OF=`mktemp /tmp/dot.XXX`
-#    dot -Tpng -o${OF} $1
-#    open -a Preview ${OF}
-#}
-
 alias mt='m && t'
 
 alias wcc='wc -l *.cpp *.h *.py *.rb'
@@ -141,54 +111,12 @@ alias am='open -a "Activity Monitor"'
 #    fi
 #}
 
-alias sshilm='ssh -Y jrkelley@millhouse.ilm.com'
-alias sshm='sshilm'
-alias sshluxothena='ssh 128.30.96.108'
 alias sshk='ssh katokop1.mit.edu'
 alias sshc='ker && ssh login.csail.mit.edu'
 
 source ~/.profile.functions
 
-
 alias updatedb='sudo nice /usr/libexec/locate.updatedb'
 
-
-function mkdso {
-  g++ -arch ppc -I${RMANTREE}/include -c $1 -o $1.o
-  #setenv MACOSX_DEPLOYMENT_TARGET 10.3
-  g++ -arch ppc -bundle -undefined dynamic_lookup $1.o -o $1.so
-}
-
-
-# Reset Visor size and kill/restart terminal, from:
-# http://www.macosxhints.com/article.php?story=20070214223039729
-resetvisor() {                                                                        
-  defaults write com.apple.VTerminal VisorTerminal -dict-add Rows 20
-  ~/bin/.visor &
-  killall Terminal
-}
 # Alternatively, trap the EXIT point to always reset when quitting Terminal
 trap "defaults write com.apple.VTerminal VisorTerminal -dict-add Rows 20" EXIT
-
-DS_ROOT="/Users/jrk/Documents/Projects/multisampling/ds"
-function v {
-    if [[ $1 ]]; then
-        DATA_ROOT="$DS_ROOT/data/$1"
-        REF_IMG="$DATA_ROOT/*_raster.png"
-        SIM_IMG="$DATA_ROOT/*sim.ppm"
-    else
-        REF_IMG="*_raster.png"
-        SIM_IMG="*.sim.ppm"
-    fi
-    ll $REF_IMG $SIM_IMG
-    imagediff $REF_IMG $SIM_IMG
-}
-#alias v='ll *_raster.png *sim.ppm && imagediff *_raster.png *sim.ppm' # verify
-function t {
-    RAST_FILE="$DS_ROOT/data/$1/$1.rast"
-    python "$DS_ROOT/gpusim2/GPU.py" $RAST_FILE
-}
-function tv {
-    t $1 && v $1
-}
-export PATH=$PATH:$DS_ROOT/util:$DS_ROOT/rasterizer
