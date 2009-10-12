@@ -253,9 +253,11 @@ alias svndiff='svn diff --diff-cmd=fmdiff'
 
 alias skim='open -a Skim'
 
+alias aps='open -a "Adobe Photoshop CS4"'
+
 function aps_compare {
     aps $@
-    osascript -e 'tell application "Adobe Photoshop CS3" to do action "Compare Open Images" from "jrk"'
+    osascript -e 'tell application "Adobe Photoshop CS4" to do action "Compare Open Images" from "jrk"'
 }
 
 #function zigci {

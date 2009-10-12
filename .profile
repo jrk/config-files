@@ -116,7 +116,6 @@ alias act='open -a "Activity Monitor"'
 alias hexf='open -a "Hex Fiend"'
 alias skim='open -a "Skim"'
 alias s='skim'
-alias aps='open -a "Adobe Photoshop CS4"'
 
 alias snowcrash='ssh snowcrash.csres.utexas.edu'
 
