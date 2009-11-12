@@ -215,3 +215,7 @@ export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
  
 shopt -s histappend
+
+# Add Scala
+export SCALA_HOME=${HOME}/scala
+export PATH=${PATH}:${SCALA_HOME}/bin
