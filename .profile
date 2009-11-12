@@ -220,6 +220,11 @@ shopt -s histappend
 export SCALA_HOME=${HOME}/scala
 export PATH=${PATH}:${SCALA_HOME}/bin
 
+# Record recurisve wget: 
+alias wget-recursive="wget -r --no-parent"
+alias rwget=wget-recursive
+alias wgetr=wget-recursive
+
 # Go language
 export GOROOT=${HOME}/Projects/go
 export GOOS=darwin

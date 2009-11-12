@@ -15,6 +15,17 @@ cmdfu(){ curl "http://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ | 
 #  }
 #fi
 
+function p12topem {
+    # Convert a p12 certificate export to raw OpenSSL pem format, including 
+    # private key and certificate.
+    # via http://www.gridsite.org/wiki/Convert_p12
+    
+    openssl pkcs12 -in "$1" -nodes -out "$2"
+
+    # Make it readable only by you:
+    chmod 0400 "$2"
+}
+
 function cdgr {
     ## If the current working directory is inside of 
     ## a git repository, this function will change
@@ -62,6 +73,18 @@ get_keychain_service_account ()
 {
     security find-generic-password -s "$1"   | grep acct | \
     ruby -e 'print $1 if STDIN.gets =~ /^[ ]*"acct"<blob>="(.*)"$/';
+}
+
+get_keychain_internet_account ()
+{
+    security find-internet-password -s "$1"   | grep acct | \
+    ruby -e 'print $1 if STDIN.gets =~ /^[ ]*"acct"<blob>="(.*)"$/';
+}
+
+get_keychain_internet_password ()
+{
+    security 2>&1 >/dev/null find-internet-password -s "$1" -a "$2" -g   | \
+    ruby -e 'print $1 if STDIN.gets =~ /^password: "(.*)"$/';
 }
 
 yubnub ()
