@@ -151,3 +151,8 @@
 
 (load "~/.emacs.gnu.custom")
 (load "~/.emacs.mac-stuff")
+
+; Add textmate.el mode
+(add-to-list 'load-path "~/.emacs.d/vendor/textmate.el")
+(require 'textmate)
+(textmate-mode)
