@@ -1,9 +1,9 @@
 client = yes 
-output = /Users/jrk/.config/stunnel/stunnel.log 
+output = /Users/jrk/.stunnel/synergyc/stunnel.log 
 socket = l:TCP_NODELAY=1 
 socket = r:TCP_NODELAY=1 
-cert = /Users/jrk/.config/stunnel/stunnel.pem 
-pid = /Users/jrk/.config/stunnel/stunnel.pid
+cert = /Users/jrk/.stunnel/synergyc/stunnel.pem 
+pid = /Users/jrk/.stunnel/synergyc/stunnel.pid
 
 [synergy] 
 accept = 24800
