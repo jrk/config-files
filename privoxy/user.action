@@ -166,4 +166,14 @@ www.example.com/nasty-ads/sponsor.gif
 { +set-image-blocker{blank} }
 #/
 
+{ +redirect{http://localhost:12121} }
+.arstechnica.com
+.techcrunch.com
+.anandtech.com
+.dailytech.com
+news.google.com
+.google.com/news
+.google.com/reader
+
+
 ## set vi:nowrap tw=72
