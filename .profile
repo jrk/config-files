@@ -99,8 +99,13 @@ alias ft=fortress
 export CVS_RSH=ssh
 
 alias o='open -a'
-alias oqs='o Quicksilver'
-alias reqs='killall Quicksilver && oqs'
+#alias oqs='o Quicksilver'
+#alias reqs='killall Quicksilver && oqs'
+alias oqs='o "Quick Search Box"'
+alias reqs='killall "Quick Search Box" && oqs'
+alias oqsb=oqs
+alias reqsb=reqs
+alias qsb=oqs
 alias ttop='top -ocpu -R -F -s 2 -n30'
 alias see='open -a /Applications/SubEthaEdit.app'
 alias ll='ls -ltrF'
