@@ -219,3 +219,10 @@ shopt -s histappend
 # Add Scala
 export SCALA_HOME=${HOME}/scala
 export PATH=${PATH}:${SCALA_HOME}/bin
+
+# Go language
+export GOROOT=${HOME}/Projects/go
+export GOOS=darwin
+export GOARCH=amd64
+export GOBIN=${GOROOT}/bin
+export PATH=${PATH}:${GOBIN}
