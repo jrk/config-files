@@ -4,9 +4,10 @@
 source ~/.profile
 
 # bash-completion
-if [ -f /opt/local/etc/bash_completion ]; then
-    . /opt/local/etc/bash_completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
 fi
+source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 
 #autojump
 #This shell snippet sets the prompt command and the necessary aliases
