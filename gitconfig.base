@@ -16,8 +16,12 @@
     sta = stash
     up = pull
     llog = log --date=local
-    changes=diff --name-status -r
-    unadd=update-index --force-remove
+    changes = diff --name-status -r
+    diffstat = diff --stat -r
+    unadd = update-index --force-remove
+    chdiff = !GIT_EXTERNAL_DIFF=/Users/jrk/bin/git-diff-changes-wrapper git diff
+    edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+    add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 
 [merge]
     tool = changesapp
