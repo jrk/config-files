@@ -154,6 +154,8 @@ alias am='open -a "Activity Monitor"'
 alias sshk='ssh katokop1.mit.edu'
 alias sshc='ker && ssh login.csail.mit.edu'
 
+alias g=git
+
 source ~/.profile.functions
 
 # Amazon S3
@@ -226,8 +228,17 @@ alias rwget=wget-recursive
 alias wgetr=wget-recursive
 
 # Go language
-export GOROOT=${HOME}/Projects/go
-export GOOS=darwin
+#export GOROOT=${HOME}/Projects/go
+#export GOOS=darwin
+#export GOARCH=amd64
+#export GOBIN=${GOROOT}/bin
+#export PATH=${PATH}:${GOBIN}
+export GOROOT=`brew --prefix`/Cellar/go/HEAD
 export GOARCH=amd64
-export GOBIN=${GOROOT}/bin
-export PATH=${PATH}:${GOBIN}
+export GOOS=darwin
+
+# GitHub
+#alias git=hub
+
+# Haskell Cabal
+export PATH=~/.cabal/bin:${PATH}
