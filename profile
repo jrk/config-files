@@ -4,15 +4,58 @@ function explore {
     explorer $@ &
 }
 
+# Convert cygwin paths to windows paths
+function cyg2win {
+	# Dereferencing Cygwin links seems to be handled implicitly by cygpath -w
+	#if [ -L "$1" ]; then
+	#	1=`readlink -f "$1"` # dereference cygwin symlinks
+	#fi
+	cygpath -w "$1"      # return the fully resolved Windows path
+}
+
 alias start='cmd /C start'
 
-# </Windows>
+function lnk {
+	if [ -d "$1" ]; then
+		ARGS="/D"
+	else
+		ARGS=""
+	fi
+	SRC=`cyg2win "$1"`
+	DST=`cyg2win "$2"`
+	cmd /C mklink ${ARGS} "$DST" "$SRC"
+}
 
+# </Windows>
 
 # <SSH>
 
 alias sshagent='eval `ssh-agent` && ssh-add'
 alias ssha=sshagent
+
+# ssh-agent setup via http://mah.everybody.org/docs/ssh
+SSH_ENV="$HOME/.ssh/environment"
+
+function start_agent {
+     echo "Initialising new SSH agent..."
+     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+     echo succeeded
+     chmod 600 "${SSH_ENV}"
+     . "${SSH_ENV}" > /dev/null
+     /usr/bin/ssh-add;
+}
+
+# Source SSH settings, if applicable
+
+if [ -f "${SSH_ENV}" ]; then
+     . "${SSH_ENV}" > /dev/null
+     #ps ${SSH_AGENT_PID} doesn't work under cywgin
+     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+         start_agent;
+     }
+else
+     start_agent;
+fi 
 
 # </SSH>
 
@@ -51,7 +94,13 @@ function runsample {
 
 # (Via http://www.emacswiki.org/emacs/EmacsClient)
 # To have emacsclient start a full Emacs process if it can’t connect to one, simply set ALTERNATE_EDITOR. In your .bash_profile (or similar):
-export ALTERNATE_EDITOR=emacs EDITOR=emacsclient VISUAL=emacsclient
+export ALTERNATE_EDITOR=emacs EDITOR=emacsclient #VISUAL=emacsclient
+export VISUAL=sublimetext
 
 alias ed='emacsclient -n'
 alias em=ed
+
+# Add msysGit and Sublime Text to our path
+export PATH="${PATH}:/cygdrive/c/Program Files (x86)/Sublime Text" #":/cygdrive/c/Program Files (x86)/Git/bin"
+alias st=sublimetext.exe
+#export EDITOR=sublimetext.exe # already set in Windows user environment
