@@ -105,6 +105,10 @@ allow-ads   = -block -filter{banners-by-size} -filter{banners-by-link}
 #
 #.tldp.org
 #/(.*/)?selfhtml/
+#appengine.google.com
+#.appengine.google.com
+#appspot.com
+#.appspot.com
 
 # And this stupid host sends streaming video with a wrong MIME type,
 # so that Privoxy thinks it is getting HTML and starts filtering:
@@ -155,6 +159,8 @@ www.example.com/nasty-ads/sponsor.gif
 #.sourceforge.net
 #.slashdot.org
 #.osdn.net
+.last.fm
+.mekentosj.com
 
 # user.action is generally the best place to define exceptions and
 # additions to the default policies of default.action. Some actions are
@@ -173,7 +179,9 @@ www.example.com/nasty-ads/sponsor.gif
 .dailytech.com
 news.google.com
 .google.com/news
-.google.com/reader
+#.google.com/reader
+
+#@jrk TODO: disable for .apple.com, to fix iTunes error 8003 on download, or similar.
 
 
 ## set vi:nowrap tw=72
