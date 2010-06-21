@@ -20,7 +20,7 @@ export EMBER_PATH=/Users/jrk/Documents/Projects/ember/ember-p4
 export EMBER_LLVM_BUILD_PATH=$EMBER_PATH/llvm-src/Release
 export EMBER_LLVM_BIN_PATH=$EMBER_LLVM_BUILD_PATH/bin
 export EMBER_LLVM_LIB_PATH=$EMBER_LLVM_BUILD_PATH/lib
-export PATH=$PATH:$EMBER_LLVM_BIN_PATH
+#export PATH=$PATH:$EMBER_LLVM_BIN_PATH
 alias emberopt="$EMBER_LLVM_BIN_PATH/opt -load $EMBER_LLVM_LIB_PATH/LLVMcd.dylib -load $EMBER_LLVM_LIB_PATH/LLVMember.dylib"
 alias eopt=emberopt
 
@@ -151,8 +151,9 @@ alias mt='m && t'
 alias wcc='wc -l *.cpp *.h *.py *.rb'
 alias am='open -a "Activity Monitor"'
 
-alias sshk='ssh katokop1.mit.edu'
+alias sshk='ssh katokop1.csail.mit.edu'
 alias sshc='ker && ssh login.csail.mit.edu'
+alias sshl='ssh luxo3.csail.mit.edu'
 
 alias g=git
 
@@ -182,7 +183,10 @@ resetvisor() {
 # Alternatively, trap the EXIT point to always reset when quitting Terminal
 trap "defaults write com.apple.VTerminal VisorTerminal -dict-add Rows 20" EXIT
 
-DS_ROOT="/Users/jrk/Documents/Projects/multisampling/ds"
+DS_ROOT="/Users/jrk/proj/multisampling/ds"
+#export PATH=${PATH}:${DS_ROOT}/util
+#source ${DS_ROOT}/util/profile
+
 #function v {
 #    if [[ $1 ]]; then
 #        DATA_ROOT="$DS_ROOT/data/$1"
@@ -236,9 +240,27 @@ alias wgetr=wget-recursive
 export GOROOT=`brew --prefix`/Cellar/go/HEAD
 export GOARCH=amd64
 export GOOS=darwin
+export GOBIN=${GOROOT}/bin
+
 
 # GitHub
 #alias git=hub
 
 # Haskell Cabal
 export PATH=~/.cabal/bin:${PATH}
+
+# Run R.app in the current working directory, as thought it were command-line R
+alias Rapp="open -a R64 ."
+
+# ooc
+export OOC_HOME=${HOME}/Projects/ooc/ooc
+export OOC_LIBS=/usr/local/lib/ooc
+#export PATH=${PATH}:${HOME}/Projects/ooc/ooc/bin
+# alias ooc='java -jar ${OOC_HOME}/ooc/bin/ooc.jar'
+
+# ec2-api-tools
+export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home/"
+export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.3-46266/"
+
+# Google Chromium depot_tools
+export PATH=${PATH}:/usr/local/Cellar/depot_tools/CURRENT

@@ -1,3 +1,16 @@
+alias sshLuxoVNC='ssh -L5900:luxo3.csail.mit.edu:5900 login.csail.mit.edu'
+alias sshQuatVNC='ssh -L5900:quaternion.csail.mit.edu:5900 login.csail.mit.edu'
+
+function openterm {
+    ## Open a new Terminal window at $1
+    path=`cd $1; pwd`
+    osascript -e "tell application \"Terminal\" to do script \"cd \\\"${path}\\\"\""
+}
+alias term=openterm
+
+alias isoD='date +%Y-%m-%d'
+alias cddl='cd ~/Downloads/`isoD`'
+
 alias usingnet='lsof -P -i -n | cut -f 1 -d " " | uniq | tail -n +2'
 
 # Via: http://www.commandlinefu.com/commands/view/3086/search-commandlinefu.com-from-the-command-line-using-the-api
@@ -46,6 +59,7 @@ alias pdf=pushdf
 alias matef='mate `front_finder_window_path`'
 
 alias getip='curl icanhazip.com'
+alias ifconfig-ips="ifconfig -a | perl -nle'/((\d+\.){3}\d+)/ && print $1'"
 
 function clfu-search() {
 wget -q -O /dev/stdout --post-data "q=$1" http://www.commandlinefu.com/search/autocomplete | grep "class=\"autocomplete-command\"" | sed -e 's/^.*<strong>\(.*\)<\/strong>/\1/' -e 's/<\/div>//' | sort -u
@@ -277,6 +291,7 @@ alias svndiff='svn diff --diff-cmd=fmdiff'
 alias skim='open -a Skim'
 
 alias aps='open -a "Adobe Photoshop CS4"'
+alias ai='open -a "Adobe Illustrator"'
 
 function aps_compare {
     aps $@
