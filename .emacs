@@ -156,3 +156,6 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/textmate.el")
 (require 'textmate)
 (textmate-mode)
+
+; ESS: Emacs speaks statistics - fancy R support
+(load "/usr/local/share/ess/lisp/ess-site")
