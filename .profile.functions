@@ -3,7 +3,7 @@ alias sshQuatVNC='ssh -L5900:quaternion.csail.mit.edu:5900 login.csail.mit.edu'
 
 function openterm {
     ## Open a new Terminal window at $1
-    path=`cd $1; pwd`
+    path=`cd "$1"; pwd`
     osascript -e "tell application \"Terminal\" to do script \"cd \\\"${path}\\\"\""
 }
 alias term=openterm
