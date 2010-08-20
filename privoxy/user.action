@@ -151,6 +151,9 @@ www.example.com/nasty-ads/sponsor.gif
 # 
 { fragile }
 #.forbes.com
+.rcrdlbl.com
+sis.siggraph.org
+.adultswim.com
 
 # Here are some sites we wish to support, and we will allow their ads
 # through.
@@ -161,6 +164,7 @@ www.example.com/nasty-ads/sponsor.gif
 #.osdn.net
 .last.fm
 .mekentosj.com
+
 
 # user.action is generally the best place to define exceptions and
 # additions to the default policies of default.action. Some actions are
