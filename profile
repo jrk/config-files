@@ -111,7 +111,7 @@ alias see='open -a /Applications/SubEthaEdit.app'
 alias ll='ls -ltrF'
 alias la='ls -AF'
 alias l='ls -F'
-alias make='make -j4'
+alias make='make -j12'
 alias m='make'
 #alias t='make test'
 alias mft='make freshtest'
@@ -151,6 +151,7 @@ alias mt='m && t'
 alias wcc='wc -l *.cpp *.h *.py *.rb'
 alias am='open -a "Activity Monitor"'
 
+alias sshj='ssh jrk.mit.edu'
 alias sshk='ssh katokop1.csail.mit.edu'
 alias sshc='ker && ssh login.csail.mit.edu'
 alias sshl='ssh luxo3.csail.mit.edu'
@@ -160,8 +161,8 @@ alias g=git
 source ~/.profile.functions
 
 # Amazon S3
-export AWS_ACCESS_KEY_ID=`get_keychain_service_account "Amazon S3"`
-export AWS_SECRET_ACCESS_KEY=`get_keychain_service_password "Amazon S3"`
+#export AWS_ACCESS_KEY_ID=`get_keychain_service_account "Amazon S3"`
+#export AWS_SECRET_ACCESS_KEY=`get_keychain_service_password "Amazon S3"`
 
 alias updatedb='sudo nice /usr/libexec/locate.updatedb'
 

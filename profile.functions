@@ -9,7 +9,7 @@ function openterm {
 alias term=openterm
 
 alias isoD='date +%Y-%m-%d'
-alias cddl='cd ~/Downloads/`isoD`'
+alias cddl='mkdir -p ~/Downloads/`isoD` && cd ~/Downloads/`isoD`'
 
 alias usingnet='lsof -P -i -n | cut -f 1 -d " " | uniq | tail -n +2'
 
@@ -290,8 +290,8 @@ alias svndiff='svn diff --diff-cmd=fmdiff'
 
 alias skim='open -a Skim'
 
-alias aps='open -a "Adobe Photoshop CS4"'
-alias ai='open -a "Adobe Illustrator"'
+alias aps='open -b "com.adobe.Photoshop"'
+alias ai='open -b "com.adobe.Illustrator"'
 
 function aps_compare {
     aps $@
