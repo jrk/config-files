@@ -195,8 +195,6 @@ function dirname {
 }
 
 function get_pw {
-  #security 2>&1 >/dev/null find-generic-password -ga katokop1@gmail.com \
-  #|ruby -e 'print $1 if STDIN.gets =~ /^password: "(.*)"$/'
   get_pw.py -a $1
 }
 
@@ -313,3 +311,8 @@ function imagediff {
 
 source ~/.profile.functions.kerberos
 source ~/.profile.functions.blog
+
+function Sleep () {
+    osascript -e 'tell application "System Events" to sleep'
+}
+alias _sleep=Sleep
