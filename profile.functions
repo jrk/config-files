@@ -13,6 +13,14 @@ alias cddl='mkdir -p ~/Downloads/`isoD` && cd ~/Downloads/`isoD`'
 
 alias usingnet='lsof -P -i -n | cut -f 1 -d " " | uniq | tail -n +2'
 
+# https://www.strongspace.com/blog/a-little-strongspace-bash-fu
+function sshare () {
+  scp "$1" ss:/strongspace/jrk/public
+  url="https://www.strongspace.com/jrk/public/$(basename $1)"
+  tiny=$(curl -s --data-urlencode "url=$url" http://tinyurl.com/api-create.php)
+  echo -n $tiny | pbcopy && echo $tiny
+}
+
 # Via: http://www.commandlinefu.com/commands/view/3086/search-commandlinefu.com-from-the-command-line-using-the-api
 cmdfu(){ curl "http://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ | openssl base64)/plaintext"; }
 
