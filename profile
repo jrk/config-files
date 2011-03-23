@@ -4,17 +4,23 @@
 ##
 echo $PATH | grep -q -s "/usr/local/bin"
 if [ $? -eq 1 ] ; then
-    PATH=$PATH:/usr/local/bin
+    PATH=/usr/local/bin:$PATH
+    export PATH
+fi
+echo $MANPATH | grep -q -s "/usr/local/man"
+if [ $? -eq 1 ] ; then
+    MANPATH=/usr/local/man:$MANPATH
+    MANPATH=/usr/local/share/man:$MANPATH
+    export MANPATH
+fi
+
+echo $PATH | grep -q -s "/usr/local/sbin"
+if [ $? -eq 1 ] ; then
+    PATH=$PATH:/usr/local/sbin
     export PATH
 fi
 
 export PATH=/usr/local/git/bin:$PATH
-
-# liftweb path vars
-export M2_HOME=/opt/local/share/java/maven2/
-export M2=$M2_HOME/bin
-export MAVEN_OPTS="-noverify -javaagent:/Applications/liftweb-0.11/java-rebel/javarebel.jar"
-export PATH=$M2:$PATH
 
 export EMBER_PATH=/Users/jrk/Documents/Projects/ember/ember-p4
 export EMBER_LLVM_BUILD_PATH=$EMBER_PATH/llvm-src/Release
@@ -80,11 +86,6 @@ export STEAM_BUILD=/Users/jrk/objj_build
 
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/X11R6/bin
-
-# DarwinPorts
-export PATH=/opt/local/bin:${PATH}
-export MANPATH=/opt/local/share/man:${MANPATH}
-export INFOPATH=/opt/local/share/info:${INFOPATH}
 
 export PATH=$HOME/bin:$PATH
 export PATH=${PATH}:/Applications/Matlab/bin
@@ -265,3 +266,12 @@ export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.3-46266/"
 
 # Google Chromium depot_tools
 export PATH=${PATH}:/usr/local/Cellar/depot_tools/CURRENT
+
+# Sublime Text
+alias st='open -a "Sublime Text 2"'
+
+# matlab-ruby capable irb
+alias matlab-irb='PATH=/Applications/MATLAB_R2010b.app/bin:$PATH DYLD_LIBRARY_PATH=/Applications/MATLAB_R2010.app/sys/os/maci64:/Applications/MATLAB_R2010b.app/bin/maci64/MATLAB.app/Contents/MacOS:/Applications/MATLAB_R2010b.app/bin/maci64:/Applications/MATLAB_R2010b.app/extern/lib/maci64:/Applications/MATLAB_R2010b.app/runtime/maci64 irb'
+
+# node.js
+export NODE_PATH=${NODE_PATH}:/usr/local/lib/node
