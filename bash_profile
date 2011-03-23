@@ -1,7 +1,8 @@
 source ~/.bashrc
 
-# Prefix MacPorts on the path
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Setting PATH for MacPython 2.6
+# The orginal version is saved in .bash_profile.pysave
+export PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}"
 
 # -- start rip config -- #
 RIPDIR=/Users/jrk/.rip
@@ -18,3 +19,9 @@ export PATH
 export NARWHAL_ENGINE=jsc
 
 export PATH="/usr/local/narwhal/bin:$PATH"
+
+# -- start autojump config -- #
+if [ -f `brew --prefix`/etc/autojump ]; then
+  . `brew --prefix`/etc/autojump
+fi
+# -- end autojump config -- #

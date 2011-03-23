@@ -1,3 +1,4 @@
+export PATH=$PATH:/usr/local/share/npm/bin
 ##
 # DELUXE-USR-LOCAL-BIN-INSERT
 # (do not remove this comment)
@@ -153,13 +154,15 @@ alias wcc='wc -l *.cpp *.h *.py *.rb'
 alias am='open -a "Activity Monitor"'
 
 alias sshj='ssh jrk.mit.edu'
-alias sshk='ssh katokop1.csail.mit.edu'
+alias sshk='ssh katokop2.csail.mit.edu'
 alias sshc='ker && ssh login.csail.mit.edu'
-alias sshl='ssh luxo3.csail.mit.edu'
+alias sshl='ssh luxosr.csail.mit.edu'
+alias sshl3='ssh luxo3.csail.mit.edu'
 
 alias g=git
 
 source ~/.profile.functions
+source ~/.profile.private
 
 # Amazon S3
 #export AWS_ACCESS_KEY_ID=`get_keychain_service_account "Amazon S3"`
@@ -225,13 +228,20 @@ export HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # Add Scala
-export SCALA_HOME=${HOME}/scala
-export PATH=${PATH}:${SCALA_HOME}/bin
+#export SCALA_HOME=${HOME}/scala
+#export PATH=${PATH}:${SCALA_HOME}/bin
+
+# Clojure
+export CLASSPATH=$CLASSPATH:/usr/local/Cellar/clojure-contrib/1.2.0/clojure-contrib.jar
+
+# Bash doesn't have `rehash` -- this is the equivalent to rescan the PATH
+alias rehash="hash -r"
 
 # Record recurisve wget: 
 alias wget-recursive="wget -r --no-parent"
 alias rwget=wget-recursive
 alias wgetr=wget-recursive
+
 
 # Go language
 #export GOROOT=${HOME}/Projects/go
@@ -275,3 +285,13 @@ alias matlab-irb='PATH=/Applications/MATLAB_R2010b.app/bin:$PATH DYLD_LIBRARY_PA
 
 # node.js
 export NODE_PATH=${NODE_PATH}:/usr/local/lib/node
+
+# Enable rvm bash completion
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+
+#
+# PROJECTS
+#
+
+# FImage
+alias fim="cd ~/proj/fimage/FImage && source ./bash_profile"
