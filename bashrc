@@ -1,7 +1,10 @@
 export PATH=/usr/local/bin:${PATH} # add Homebrew for even non-interactive logins
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+# [ -z "$PS1" ] && return
+if [[ -n "$PS1" ]] ; then
+
+  # ... original content that was below the '&& return' line ...
 
 source ~/.profile
 
@@ -30,3 +33,8 @@ source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 #alias jumpstat="autojump --stat"
 #function j { new_path="$(autojump $@)";if [ -n "$new_path" ]; then echo -e "\\033[31m${new_path}\\033[0m"; cd "$new_path";fi }
 source /Users/jrk/.lightning/functions.sh
+
+fi # <= be sure to close the if at the end of the .bashrc.
+
+# This is a good place to source rvm v v v
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.

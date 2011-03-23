@@ -1,3 +1,4 @@
+export PATH=$PATH:/usr/local/share/npm/bin
 ##
 # DELUXE-USR-LOCAL-BIN-INSERT
 # (do not remove this comment)
@@ -8,13 +9,7 @@ if [ $? -eq 1 ] ; then
     export PATH
 fi
 
-export PATH=/usr/local/git/bin:$PATH
-
-# liftweb path vars
-export M2_HOME=/opt/local/share/java/maven2/
-export M2=$M2_HOME/bin
-export MAVEN_OPTS="-noverify -javaagent:/Applications/liftweb-0.11/java-rebel/javarebel.jar"
-export PATH=$M2:$PATH
+export PATH=$PATH:/usr/local/sbin
 
 export EMBER_PATH=/Users/jrk/Documents/Projects/ember/ember-p4
 export EMBER_LLVM_BUILD_PATH=$EMBER_PATH/llvm-src/Release
@@ -80,11 +75,6 @@ export STEAM_BUILD=/Users/jrk/objj_build
 
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/X11R6/bin
-
-# DarwinPorts
-export PATH=/opt/local/bin:${PATH}
-export MANPATH=/opt/local/share/man:${MANPATH}
-export INFOPATH=/opt/local/share/info:${INFOPATH}
 
 export PATH=$HOME/bin:$PATH
 export PATH=${PATH}:/Applications/Matlab/bin
@@ -152,13 +142,15 @@ alias wcc='wc -l *.cpp *.h *.py *.rb'
 alias am='open -a "Activity Monitor"'
 
 alias sshj='ssh jrk.mit.edu'
-alias sshk='ssh katokop1.csail.mit.edu'
+alias sshk='ssh katokop2.csail.mit.edu'
 alias sshc='ker && ssh login.csail.mit.edu'
-alias sshl='ssh luxo3.csail.mit.edu'
+alias sshl='ssh luxosr.csail.mit.edu'
+alias sshl3='ssh luxo3.csail.mit.edu'
 
 alias g=git
 
 source ~/.profile.functions
+source ~/.profile.private
 
 # Amazon S3
 #export AWS_ACCESS_KEY_ID=`get_keychain_service_account "Amazon S3"`
@@ -224,13 +216,20 @@ export HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # Add Scala
-export SCALA_HOME=${HOME}/scala
-export PATH=${PATH}:${SCALA_HOME}/bin
+#export SCALA_HOME=${HOME}/scala
+#export PATH=${PATH}:${SCALA_HOME}/bin
+
+# Clojure
+export CLASSPATH=$CLASSPATH:/usr/local/Cellar/clojure-contrib/1.2.0/clojure-contrib.jar
+
+# Bash doesn't have `rehash` -- this is the equivalent to rescan the PATH
+alias rehash="hash -r"
 
 # Record recurisve wget: 
 alias wget-recursive="wget -r --no-parent"
 alias rwget=wget-recursive
 alias wgetr=wget-recursive
+
 
 # Go language
 #export GOROOT=${HOME}/Projects/go
@@ -265,3 +264,13 @@ export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.3-46266/"
 
 # Google Chromium depot_tools
 export PATH=${PATH}:/usr/local/Cellar/depot_tools/CURRENT
+
+# Enable rvm bash completion
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+
+#
+# PROJECTS
+#
+
+# FImage
+alias fim="cd ~/proj/fimage/FImage && source ./bash_profile"

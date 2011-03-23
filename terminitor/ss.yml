@@ -1,0 +1,11 @@
+# Strongspace development
+---
+- main:
+  - cd ~/proj/expandrive/weakspace
+  - mate .
+- server:
+  - cd ~/proj/expandrive/weakspace
+  - git pull && ./start_dev_server # wait mysqld to start
+#- mysqld:
+#  - if [ ! -S /tmp/mysql.sock ]; then mysqld_safe; fi
+#  - logout

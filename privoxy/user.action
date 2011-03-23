@@ -154,6 +154,7 @@ www.example.com/nasty-ads/sponsor.gif
 .rcrdlbl.com
 sis.siggraph.org
 .adultswim.com
+.notifo.com
 
 # Here are some sites we wish to support, and we will allow their ads
 # through.
@@ -177,12 +178,12 @@ sis.siggraph.org
 #/
 
 { +redirect{http://localhost:12121} }
-.arstechnica.com
-.techcrunch.com
-.anandtech.com
-.dailytech.com
-news.google.com
-.google.com/news
+#.arstechnica.com
+#.techcrunch.com
+#.anandtech.com
+#.dailytech.com
+#news.google.com
+#.google.com/news
 #.google.com/reader
 
 #@jrk TODO: disable for .apple.com, to fix iTunes error 8003 on download, or similar.
