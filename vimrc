@@ -1,18 +1,12 @@
+" use pathogen
+filetype off
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
 " An example for a vimrc file.
 "
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
 " Last change:	2002 Sep 19
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
 
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -21,12 +15,8 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
-set history=50		" keep 50 lines of command line history
+set backup		" keep a backup file
+set history=500		" keep 500 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
@@ -79,3 +69,111 @@ else
   set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
+" end Bram Moolenaar template
+
+" hide MacVim toolbar
+if has("gui_running")
+    set guioptions=egmrt
+endif
+
+" use anonymous pro
+set guifont=Anonymous\ Pro:h13
+
+" Arrow keys as text shifters
+function! DelEmptyLineAbove()
+    if line(".") == 1
+        return
+    endif
+    let l:line = getline(line(".") - 1)
+    if l:line =~ '^\s*$'
+        let l:colsave = col(".")
+        .-1d
+        silent normal! <C-y>
+        call cursor(line("."), l:colsave)
+    endif
+endfunction
+ 
+function! AddEmptyLineAbove()
+    let l:scrolloffsave = &scrolloff
+    " Avoid jerky scrolling with ^E at top of window
+    set scrolloff=0
+    call append(line(".") - 1, "")
+    if winline() != winheight(0)
+        silent normal! <C-e>
+    endif
+    let &scrolloff = l:scrolloffsave
+endfunction
+ 
+function! DelEmptyLineBelow()
+    if line(".") == line("$")
+        return
+    endif
+    let l:line = getline(line(".") + 1)
+    if l:line =~ '^\s*$'
+        let l:colsave = col(".")
+        .+1d
+        ''
+        call cursor(line("."), l:colsave)
+    endif
+endfunction
+ 
+function! AddEmptyLineBelow()
+    call append(line("."), "")
+endfunction
+ 
+" Arrow key remapping: Up/Dn = move line up/dn; Left/Right = indent/unindent
+function! SetArrowKeysAsTextShifters()
+    " normal mode
+    nmap <silent> <Left> <<
+    nmap <silent> <Right> >>
+    nnoremap <silent> <Up> <Esc>:call DelEmptyLineAbove()<CR>
+    nnoremap <silent> <Down>  <Esc>:call AddEmptyLineAbove()<CR>
+    nnoremap <silent> <C-Up> <Esc>:call DelEmptyLineBelow()<CR>
+    nnoremap <silent> <C-Down> <Esc>:call AddEmptyLineBelow()<CR>
+ 
+    " visual mode
+    vmap <silent> <Left> <
+    vmap <silent> <Right> >
+    vnoremap <silent> <Up> <Esc>:call DelEmptyLineAbove()<CR>gv
+    vnoremap <silent> <Down>  <Esc>:call AddEmptyLineAbove()<CR>gv
+    vnoremap <silent> <C-Up> <Esc>:call DelEmptyLineBelow()<CR>gv
+    vnoremap <silent> <C-Down> <Esc>:call AddEmptyLineBelow()<CR>gv
+ 
+    " insert mode
+    imap <silent> <Left> <C-D>
+    imap <silent> <Right> <C-T>
+    inoremap <silent> <Up> <Esc>:call DelEmptyLineAbove()<CR>a
+    inoremap <silent> <Down> <Esc>:call AddEmptyLineAbove()<CR>a
+    inoremap <silent> <C-Up> <Esc>:call DelEmptyLineBelow()<CR>a
+    inoremap <silent> <C-Down> <Esc>:call AddEmptyLineBelow()<CR>a
+ 
+    " disable modified versions we are not using
+    nnoremap  <S-Up>     <NOP>
+    nnoremap  <S-Down>   <NOP>
+    nnoremap  <S-Left>   <NOP>
+    nnoremap  <S-Right>  <NOP>
+    vnoremap  <S-Up>     <NOP>
+    vnoremap  <S-Down>   <NOP>
+    vnoremap  <S-Left>   <NOP>
+    vnoremap  <S-Right>  <NOP>
+    inoremap  <S-Up>     <NOP>
+    inoremap  <S-Down>   <NOP>
+    inoremap  <S-Left>   <NOP>
+    inoremap  <S-Right>  <NOP>
+endfunction
+ 
+call SetArrowKeysAsTextShifters()
+
+" Textmate-style intent/outdent
+vmap <D-]> >gv
+vmap <D-[> <gv
+
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+" Edit vimrc in new tab via `,v`
+let mapleader = ","
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
