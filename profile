@@ -143,7 +143,7 @@ alias s='skim'
 alias vu='myFlipper'
 
 #export EDITOR="mate_w"
-export EDITOR="mvim --remote-wait-silent"
+export EDITOR="mvim -f"
 
 export LC_CTYPE=en_US.UTF-8
 export SCONSFLAGS=-Q
