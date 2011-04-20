@@ -82,6 +82,8 @@ export PATH=$PATH:$RMANTREE/bin
 export PYTHONPATH=$PYTHONPATH:$RMANTREE/bin
 export PATH=/usr/local/cuda/bin:$PATH
 export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
+# Add libclang to library path, for MacVim clang_complete
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/Developer/usr/clang-ide/lib
 
 export OBJJ_HOME=/usr/local/share/objj
 export STEAM_BUILD=/Users/jrk/objj_build
