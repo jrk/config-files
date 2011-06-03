@@ -75,7 +75,7 @@ export P4DIFF=opendiff
 #P4ROOT=/Users/jrk/.p4root
 
 #export OSTYPE=$OSTYPE
-#export CDPATH=.:~:~/Documents/Projects
+export CDPATH=.:~/Dropbox/Projects
 
 export RMANTREE=/Applications/Pixar/RenderMan.app/Versions/RenderManProServer-14.3
 export PATH=$PATH:$RMANTREE/bin
