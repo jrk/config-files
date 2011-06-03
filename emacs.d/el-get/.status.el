@@ -1,0 +1,1 @@
+(:el-get "installed" :tuareg-mode "required" :slime "installed")
