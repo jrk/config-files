@@ -299,3 +299,5 @@ export NODE_PATH=${NODE_PATH}:/usr/local/lib/node
 
 # FImage
 alias fim="cd ~/proj/fimage/FImage && source ./bash_profile"
+
+export ARCHFLAGS="-arch x86_64 -arch i386"
