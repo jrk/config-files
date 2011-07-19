@@ -301,3 +301,9 @@ export NODE_PATH=${NODE_PATH}:/usr/local/lib/node
 alias fim="cd ~/proj/fimage/FImage && source ./bash_profile"
 
 export ARCHFLAGS="-arch x86_64 -arch i386"
+
+# Xmonad
+export USERWM=`which xmonad`
+
+# Bashmarks
+source ~/.config/bashmarks.sh
