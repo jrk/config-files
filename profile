@@ -293,6 +293,9 @@ export NODE_PATH=${NODE_PATH}:/usr/local/lib/node
 # Enable rvm bash completion
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
+# ARCHFLAGS, especially for Python extensions
+export ARCHFLAGS='-arch x86_64 -arch i386'
+
 #
 # PROJECTS
 #
