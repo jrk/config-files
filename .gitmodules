@@ -1,3 +1,6 @@
 [submodule "vim"]
 	path = vim
 	url = git@github.com:jrk/vimfiles.git
+[submodule "js"]
+	path = js
+	url = git@github.com:jrk/dotjs.git
