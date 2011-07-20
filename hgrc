@@ -1,3 +1,5 @@
+[ui]
+username = Jonathan Ragan-Kelley <jrk@csail.mit.edu>
 [extensions]
 hgext.bookmarks =
 hggit = 
