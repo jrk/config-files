@@ -302,3 +302,6 @@ export ARCHFLAGS='-arch x86_64 -arch i386'
 
 # FImage
 alias fim="cd ~/proj/fimage/FImage && source ./bash_profile"
+
+# bashmarks
+source ${HOME}/.config/bashmarks.sh
