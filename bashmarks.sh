@@ -39,7 +39,7 @@ fi
 touch $SDIRS
 
 # save current directory to bookmarks
-function s {
+function sb {
     check_help $1
     _bookmark_name_valid "$@"
     if [ -z "$exit_message" ]; then
@@ -50,21 +50,21 @@ function s {
 }
 
 # jump to bookmark
-function g {
+function gb {
     check_help $1
     source $SDIRS
     cd "$(eval $(echo echo $(echo \$DIR_$1)))"
 }
 
 # print bookmark
-function p {
+function pb {
     check_help $1
     source $SDIRS
     echo "$(eval $(echo echo $(echo \$DIR_$1)))"
 }
 
 # delete bookmark
-function d {
+function db {
     check_help $1
     _bookmark_name_valid "$@"
     if [ -z "$exit_message" ]; then
@@ -87,7 +87,7 @@ function check_help {
 }
 
 # list bookmarks with dirnam
-function l {
+function lb {
     check_help $1
     source $SDIRS
         
