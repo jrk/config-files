@@ -50,7 +50,8 @@ function parse_git_dirty {
   [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
 }
 function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+  #git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
 }
 #export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
 
@@ -77,9 +78,6 @@ export P4DIFF=opendiff
 #export OSTYPE=$OSTYPE
 #export CDPATH=.:~:~/Documents/Projects
 
-export RMANTREE=/Applications/Pixar/RenderMan.app/Versions/RenderManProServer-14.3
-export PATH=$PATH:$RMANTREE/bin
-export PYTHONPATH=$PYTHONPATH:$RMANTREE/bin
 export PATH=/usr/local/cuda/bin:$PATH
 export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
 # Add libclang to library path, for MacVim clang_complete
@@ -144,13 +142,14 @@ alias s='skim'
 
 alias vu='myFlipper'
 
-#export EDITOR="mate_w"
-export EDITOR="mvim -f"
+export EDITOR="mate -w"
+# export EDITOR="mvim -f"
+# export EDITOR="subl -w"
 
 export LC_CTYPE=en_US.UTF-8
 export SCONSFLAGS=-Q
 
-alias spot='mdfind -onlyin `pwd`'
+alias spotl='mdfind -onlyin `pwd`'
 
 alias mt='m && t'
 
@@ -288,7 +287,7 @@ alias st='open -a "Sublime Text 2"'
 alias matlab-irb='PATH=/Applications/MATLAB_R2010b.app/bin:$PATH DYLD_LIBRARY_PATH=/Applications/MATLAB_R2010.app/sys/os/maci64:/Applications/MATLAB_R2010b.app/bin/maci64/MATLAB.app/Contents/MacOS:/Applications/MATLAB_R2010b.app/bin/maci64:/Applications/MATLAB_R2010b.app/extern/lib/maci64:/Applications/MATLAB_R2010b.app/runtime/maci64 irb'
 
 # node.js
-export NODE_PATH=${NODE_PATH}:/usr/local/lib/node
+export NODE_PATH=${NODE_PATH}:${HOME}/.npm:/usr/local/lib/node:/usr/local/lib/node_modules
 
 # Enable rvm bash completion
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
@@ -296,12 +295,14 @@ export NODE_PATH=${NODE_PATH}:/usr/local/lib/node
 # ARCHFLAGS, especially for Python extensions
 export ARCHFLAGS='-arch x86_64 -arch i386'
 
+# Add brew-pip to the PYTHONPATH
+export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
+
 #
 # PROJECTS
 #
 
-# FImage
-alias fim="cd ~/proj/fimage/FImage && source ./bash_profile"
-
 # bashmarks
 source ${HOME}/.config/bashmarks.sh
+
+export BUILD_PREFIX=`uname -s`-`uname -m`
