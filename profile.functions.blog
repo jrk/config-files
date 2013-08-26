@@ -1,9 +1,0 @@
-function tweet () {
-    dts=`date +%Y-%m-%d-%H.%M.%S`
-    filename=${dts}.md
-    hdr="---\nlayout:     tweet\n---"
-    echo -e ${hdr} > ${filename}
-    mate -w ${filename}
-    git add ${filename}
-    #git commit ${filename} -m \""tweet ${dts}"\"
-}

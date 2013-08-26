@@ -1,3 +1,11 @@
+[credential]
+helper = /opt/boxen/bin/boxen-git-credential
+
+[core]
+excludesfile = /opt/boxen/config/git/gitignore
+
+[hub]
+protocol = https
 [user]
 	name = Jonathan Ragan-Kelley
 	email = jrk@csail.mit.edu
@@ -19,7 +27,6 @@
     changes = diff --name-status -r
     diffstat = diff --stat -r
     unadd = update-index --force-remove
-    chdiff = !GIT_EXTERNAL_DIFF=/Users/jrk/bin/git-diff-changes-wrapper git diff
     edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
     add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 
@@ -29,8 +36,5 @@
     cmd = /usr/bin/env chdiff --wait "$LOCAL" "$REMOTE"
     keepBackup = false
     trustExitCode = false
-#[diff]
-#	external = /Users/jrk/bin/git-diff-changes-wrapper
 [github]
 	user = jrk
-	token = !security 2>&1 >/dev/null find-generic-password -gs "github.token" | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
