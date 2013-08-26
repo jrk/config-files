@@ -87,7 +87,6 @@ alias sshl='ssh luxosr.csail.mit.edu'
 alias g=git
 
 source ~/.profile.functions
-source ~/.profile.private
 
 # Amazon S3
 #export AWS_ACCESS_KEY_ID=`get_keychain_service_account "Amazon S3"`
