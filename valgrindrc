@@ -1,1 +1,1 @@
---auto-run-dsymutil=yes
+--dsymutil=yes
