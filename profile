@@ -306,3 +306,9 @@ export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
 source ${HOME}/.config/bashmarks.sh
 
 export BUILD_PREFIX=`uname -s`-`uname -m`
+
+# TeXbin
+export PATH=$PATH:/usr/texbin
+
+# Python/pip --user package path
+export PATH=$PATH:${HOME}/Library/Python/2.7/bin
