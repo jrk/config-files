@@ -316,3 +316,13 @@ function Sleep () {
     osascript -e 'tell application "System Events" to sleep'
 }
 alias _sleep=Sleep
+
+alias qc="$HOME/bin/qc.sh"
+
+function repeat () {
+  while true
+  do
+    eval $@
+    sleep 1
+  done
+}
