@@ -132,12 +132,6 @@
 
 (auto-compression-mode)
 
-; Fix a stupidity from emacs
-(setq user-mail-address "bgoudem@axess.com")
-(setq mail-default-reply-to "bgoudem@axess.com")
-; add signature automagically
-(setq mail-signature t)
-
 ; Fix another dumb emacs behavior (i.e., button 2 pastes at cursor, not Point
 (setq mouse-yank-at-point t)
 
@@ -158,4 +152,4 @@
 (textmate-mode)
 
 ; ESS: Emacs speaks statistics - fancy R support
-(load "/usr/local/share/ess/lisp/ess-site")
+;(load "/usr/local/share/ess/lisp/ess-site")
