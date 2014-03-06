@@ -8,16 +8,3 @@ function ker {
 		klist
 	fi
 }
-
-# The kerberos GUI applications are rewritten, and no longer scriptable, in Snow
-# Leopard, so this method no longer works. However, classic kinit now seems to
-# use keychain-stored authentication credentials automatically.
-#function kerGUI {
-#    echo "
-#    tell application \"Kerberos\"
-#     renew tickets for principal \"jrk@CSAIL.MIT.EDU\"
-#     renew tickets for principal \"jrk@ATHENA.MIT.EDU\"
-#     quit
-#    end tell
-#    " | osascript
-#}

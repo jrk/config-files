@@ -310,7 +310,6 @@ function imagediff {
 }
 
 source ~/.profile.functions.kerberos
-source ~/.profile.functions.blog
 
 function Sleep () {
     osascript -e 'tell application "System Events" to sleep'
