@@ -15,3 +15,6 @@ fi
 source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 
 fi # <= be sure to close the if at the end of the .bashrc.
+
+PERL_MB_OPT="--install_base \"/Users/jrk/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/jrk/perl5"; export PERL_MM_OPT;
