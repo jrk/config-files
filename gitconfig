@@ -24,6 +24,7 @@ protocol = https
     sta = stash
     up = pull
     llog = log --date=local
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
     changes = diff --name-status -r
     diffstat = diff --stat -r
     unadd = update-index --force-remove
@@ -38,3 +39,8 @@ protocol = https
     trustExitCode = false
 [github]
 	user = jrk
+[push]
+	default = simple
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
