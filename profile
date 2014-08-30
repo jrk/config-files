@@ -1,6 +1,3 @@
-# Set up boxen
-source /opt/boxen/env.sh
-
 ##
 # DELUXE-USR-LOCAL-BIN-INSERT
 # (do not remove this comment)
@@ -125,8 +122,4 @@ export ARCHFLAGS='-arch x86_64 -arch i386'
 # PROJECTS
 #
 
-# FImage
-alias fim="cd ~/proj/fimage/FImage && source ./bash_profile"
 
-# bashmarks
-source ${HOME}/.config/bashmarks.sh
