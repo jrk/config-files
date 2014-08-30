@@ -122,7 +122,11 @@ export ARCHFLAGS='-arch x86_64 -arch i386'
 # PROJECTS
 #
 
+export BUILD_PREFIX=`uname -s`-`uname -m`
 
+# Orion/Terra
+# export LUA_PATH="?.t;${HOME}/proj/fimage/Stanford-SEEC-Convolution-Engine/orion/?.t;${HOME}/proj/fimage/terra/tests/lib/?.t"
+# export PATH=${PATH}:${HOME}/proj/fimage/terra
 
 # Homebrew Cask: install globally
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
