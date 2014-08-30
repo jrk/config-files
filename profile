@@ -124,6 +124,9 @@ export ARCHFLAGS='-arch x86_64 -arch i386'
 
 
 
+# Homebrew Cask: install globally
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
 
 # Adobe Perforce
 export P4USER=jraganke
