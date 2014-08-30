@@ -123,3 +123,9 @@ export ARCHFLAGS='-arch x86_64 -arch i386'
 #
 
 
+
+
+# Adobe Perforce
+export P4USER=jraganke
+export P4PORT=ssl:yorktown.corp.adobe.com:7020
+export P4CLIENT=jrkBookPro
